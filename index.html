@@ -1,28 +1,428 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expediente confidencial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Expediente #31</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 50% 20%, #26191b 0%, #111 38%, #080808 75%);
+    color: #eee7dc;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+/* textura sutil */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .06;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            #fff 3px
+        );
+}
+
+/* PORTADA */
+
+.portada {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.numero-fondo {
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-weight: 900;
+    font-size: clamp(230px, 45vw, 600px);
+    color: rgba(117, 24, 34, .10);
+    user-select: none;
+    line-height: 1;
+}
+
+.expediente {
+    position: relative;
+    width: min(720px, 100%);
+    border: 1px solid #625650;
+    padding: 55px 45px;
+    background: rgba(13, 13, 13, .87);
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        inset 0 0 50px rgba(255,255,255,.015);
+
+    animation: aparecer 1.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.clasificado {
+    color: #9c3540;
+    font-family: Arial, sans-serif;
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.expediente h1 {
+    text-align: center;
+    font-size: clamp(34px, 7vw, 65px);
+    letter-spacing: 3px;
+    margin: 0;
+    font-weight: normal;
+}
+
+.caso {
+    text-align: center;
+    color: #a99e91;
+    letter-spacing: 4px;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.linea {
+    width: 90px;
+    height: 1px;
+    background: #8c3039;
+    margin: 30px auto;
+}
+
+.alerta {
+    text-align: center;
+    color: #b9434f;
+    font-family: Arial, sans-serif;
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 35px;
+}
+
+.mensaje {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cfc7bb;
+    max-width: 520px;
+    margin: auto;
+}
+
+.nombre {
+    display: block;
+    margin: 25px 0 8px;
+    font-size: clamp(34px, 7vw, 54px);
+    color: #f0e9df;
+    letter-spacing: 5px;
+}
+
+.nivel {
+    color: #b23b48;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.estado {
+    margin-top: 25px;
+    font-style: italic;
+    color: #968c82;
+}
+
+/* BOTÓN */
+
+.boton-contenedor {
+    text-align: center;
+    margin-top: 40px;
+}
+
+button {
+    background: transparent;
+    color: #eee7dc;
+    border: 1px solid #8c3039;
+    padding: 16px 30px;
+    letter-spacing: 3px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: .35s ease;
+}
+
+button:hover {
+    background: #8c3039;
+    box-shadow: 0 0 25px rgba(140,48,57,.35);
+    transform: translateY(-2px);
+}
+
+.advertencia {
+    text-align: center;
+    margin-top: 35px;
+    font-size: 10px;
+    color: #665e58;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+/* sello */
+
+.sello {
+    position: absolute;
+    right: -17px;
+    top: 32px;
+    border: 3px solid rgba(145,45,55,.55);
+    color: rgba(174,55,67,.62);
+    padding: 9px 16px;
+    transform: rotate(12deg);
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+/* MENSAJE AL ABRIR */
+
+.informe {
+    display: none;
+    min-height: 100vh;
+    padding: 70px 20px;
+    background: #0b0b0b;
+}
+
+.informe.activo {
+    display: block;
+    animation: informeEntrada .8s ease;
+}
+
+@keyframes informeEntrada {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.contenido-informe {
+    max-width: 750px;
+    margin: auto;
+}
+
+.etiqueta {
+    color: #9c3540;
+    letter-spacing: 4px;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+}
+
+.informe h2 {
+    font-size: clamp(35px, 7vw, 60px);
+    font-weight: normal;
+    margin: 12px 0 40px;
+}
+
+.ficha {
+    border-top: 1px solid #403b37;
+    border-bottom: 1px solid #403b37;
+    padding: 25px 0;
+    line-height: 2;
+    color: #c8c0b5;
+}
+
+.ficha strong {
+    color: #eee7dc;
+}
+
+.continuara {
+    margin-top: 60px;
+    text-align: center;
+    color: #665e58;
+    font-style: italic;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .expediente {
+        padding: 45px 24px;
+    }
+
+    .sello {
+        right: -12px;
+        top: 18px;
+        font-size: 10px;
+    }
+
+    .mensaje {
+        font-size: 16px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <h1>⚠️ EXPEDIENTE CONFIDENCIAL ⚠️</h1>
+<section class="portada" id="portada">
 
-    <h2>CASO #31</h2>
+    <div class="numero-fondo">31</div>
 
-    <p>
-        Después de una exhaustiva investigación,
-        podemos confirmar que el sospechoso ha alcanzado
-        oficialmente el nivel 31.
-    </p>
+    <div class="expediente">
 
-    <p>
-        Contra todo pronóstico, continúa funcionando.
-    </p>
+        <div class="sello">CONFIDENCIAL</div>
 
-    <button>VER INFORME COMPLETO</button>
+        <div class="clasificado">
+            DOCUMENTO CLASIFICADO
+        </div>
+
+        <h1>EXPEDIENTE</h1>
+
+        <div class="caso">
+            CASO Nº 31
+        </div>
+
+        <div class="linea"></div>
+
+        <div class="alerta">
+            ⚠ ACCESO RESTRINGIDO ⚠
+        </div>
+
+        <div class="mensaje">
+
+            Se ha detectado un acontecimiento
+            de importancia crítica.
+
+            <span class="nombre">
+                ELE ESE
+            </span>
+
+            ha alcanzado oficialmente el
+
+            <div class="nivel">
+                NIVEL 31
+            </div>
+
+            <div class="estado">
+                Contra todo pronóstico, el sujeto continúa operativo.
+            </div>
+
+        </div>
+
+        <div class="boton-contenedor">
+            <button onclick="abrirExpediente()">
+                ABRIR EXPEDIENTE
+            </button>
+        </div>
+
+        <div class="advertencia">
+            Este documento contiene información sensible,
+            evidencia comprometedora y cantidades
+            irresponsables de amor.
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="informe" id="informe">
+
+    <div class="contenido-informe">
+
+        <div class="etiqueta">
+            ARCHIVO 001 / INFORMACIÓN DEL SUJETO
+        </div>
+
+        <h2>Ficha del sospechoso</h2>
+
+        <div class="ficha">
+
+            <strong>NOMBRE EN CLAVE:</strong>
+            Ele Ese
+            <br>
+
+            <strong>EDAD:</strong>
+            31 años
+            <br>
+
+            <strong>ESTADO:</strong>
+            Peligrosamente querido
+            <br>
+
+            <strong>NIVEL DE ATRACTIVO:</strong>
+            Estadísticamente sospechoso
+            <br>
+
+            <strong>MADUREZ:</strong>
+            Información insuficiente para emitir un dictamen
+            <br>
+
+            <strong>DELITO PRINCIPAL:</strong>
+            Conseguir que alguien a kilómetros de distancia
+            esté completamente enamorada de él
+
+        </div>
+
+        <div class="continuara">
+            El resto del expediente permanece clasificado...
+            por ahora.
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+function abrirExpediente() {
+
+    const portada = document.getElementById("portada");
+    const informe = document.getElementById("informe");
+
+    portada.style.transition = "opacity .6s ease";
+    portada.style.opacity = "0";
+
+    setTimeout(() => {
+
+        portada.style.display = "none";
+
+        informe.classList.add("activo");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }, 600);
+}
+
+</script>
 
 </body>
 </html>
