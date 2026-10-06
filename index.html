@@ -263,12 +263,138 @@ button:hover {
     font-style: italic;
 }
 
+/* ARCHIVO 002 */
 
-/* CELULAR */
+.evaluacion {
+    margin-top: 100px;
+    padding-top: 70px;
+    border-top: 1px solid #403b37;
+}
+
+.intro-evaluacion {
+    max-width: 620px;
+    color: #968c82;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.estadisticas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.tarjeta {
+    border: 1px solid #302c29;
+    padding: 30px 25px;
+    background: #0e0e0e;
+    transition: .3s ease;
+}
+
+.tarjeta:hover {
+    border-color: #743039;
+    transform: translateY(-3px);
+}
+
+.dato {
+    color: #a63a46;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    margin-bottom: 8px;
+}
+
+.titulo-dato {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #e4ddd3;
+}
+
+.tarjeta p {
+    color: #817970;
+    line-height: 1.6;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+
+/* INCIDENTE */
+
+.incidente-previo {
+    position: relative;
+    margin-top: 90px;
+    border: 1px solid #743039;
+    padding: 55px 35px;
+    text-align: center;
+    background:
+        radial-gradient(circle at center, #1c1113, #0c0c0c 65%);
+    overflow: hidden;
+}
+
+.cinta {
+    position: absolute;
+    top: 18px;
+    right: -45px;
+    transform: rotate(35deg);
+    background: #7e3039;
+    padding: 7px 55px;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.icono-incidente {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.incidente-previo h3 {
+    font-size: 32px;
+    font-weight: normal;
+    margin: 10px 0 20px;
+}
+
+.incidente-previo p {
+    max-width: 520px;
+    margin: 0 auto 15px;
+    line-height: 1.7;
+    color: #aaa096;
+}
+
+.texto-clasificado {
+    font-style: italic;
+    color: #756d66 !important;
+}
+
+.incidente-previo button {
+    margin-top: 25px;
+}
+
+.mensaje-incidente {
+    display: none;
+    margin: 35px auto 0;
+    max-width: 500px;
+    padding: 25px;
+    border-top: 1px solid #473438;
+    color: #a69c92;
+    line-height: 1.5;
+}
+
+.mensaje-incidente strong {
+    color: #b9434f;
+    letter-spacing: 3px;
+    font-family: Arial, sans-serif;
+}/* CELULAR */
 
 @media (max-width: 600px) {
+.estadisticas {
+    grid-template-columns: 1fr;
+}
 
-    .expediente {
+.incidente-previo {
+    padding: 55px 22px 35px;
+}    .expediente {
         padding: 45px 24px;
     }
 
@@ -388,11 +514,119 @@ button:hover {
 
         </div>
 
-        <div class="continuara">
-            El resto del expediente permanece clasificado...
-            por ahora.
+        <!-- ARCHIVO 002 -->
+
+<section class="evaluacion">
+
+    <div class="etiqueta">
+        ARCHIVO 002 / EVALUACIÓN DEL SUJETO
+    </div>
+
+    <h2>Evaluación del sujeto</h2>
+
+    <p class="intro-evaluacion">
+        Tras años de observación, interrogatorios no autorizados
+        y una preocupante falta de cooperación por parte de la investigada,
+        se han obtenido los siguientes resultados.
+    </p>
+
+    <div class="estadisticas">
+
+        <div class="tarjeta">
+            <div class="dato">31</div>
+            <div class="titulo-dato">AÑOS EN OPERACIÓN</div>
+            <p>
+                Sorprendentemente, sin mantenimiento preventivo.
+            </p>
         </div>
 
+        <div class="tarjeta">
+            <div class="dato">1</div>
+            <div class="titulo-dato">PALETA HERIDA EN COMBATE</div>
+            <p>
+                El sujeto continúa evitando toda conversación
+                relacionada con visitar al doctor.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="dato">100%</div>
+            <div class="titulo-dato">CAPACIDAD INTELECTUAL</div>
+            <p>
+                Extremadamente alta, siempre y cuando realice
+                exactamente una cosa a la vez.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="dato">404</div>
+            <div class="titulo-dato">MULTITAREA NO ENCONTRADA</div>
+            <p>
+                Intentar ejecutar dos tareas simultáneamente
+                puede producir resultados impredecibles.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="dato">∞</div>
+            <div class="titulo-dato">REGAÑOS EMITIDOS</div>
+            <p>
+                Una cantidad alarmante.
+                Muchos de ellos perfectamente razonables,
+                lamentablemente.
+            </p>
+        </div>
+
+        <div class="tarjeta">
+            <div class="dato">0%</div>
+            <div class="titulo-dato">CONSEJOS PROPIOS SEGUIDOS</div>
+            <p>
+                El sujeto posee excelentes recomendaciones.
+                Exclusivamente para los demás.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="incidente-previo">
+
+        <div class="cinta">
+            EVIDENCIA CLASIFICADA
+        </div>
+
+        <div class="icono-incidente">
+            🍷
+        </div>
+
+        <h3>Existe un incidente.</h3>
+
+        <p>
+            Los archivos indican la existencia de material audiovisual
+            relacionado con una noche de cuestionable toma de decisiones.
+        </p>
+
+        <p class="texto-clasificado">
+            Parte de la evidencia ha sido censurada para proteger
+            la dignidad de la investigada.
+        </p>
+
+        <button onclick="mostrarIncidente()">
+            CONSULTAR EL INCIDENTE
+        </button>
+
+        <div id="mensajeIncidente" class="mensaje-incidente">
+            <strong>ACCESO DENEGADO.</strong>
+            <br><br>
+            La investigadora todavía está decidiendo cuánto daño
+            emocional está dispuesta a causar.
+            <br><br>
+            🍷 ARCHIVO 003 PENDIENTE DE DESCLASIFICACIÓN 🍷
+        </div>
+
+    </div>
+
+</section>
     </div>
 
 </section>
@@ -421,7 +655,16 @@ function abrirExpediente() {
 
     }, 600);
 }
+function mostrarIncidente() {
 
+    const mensaje = document.getElementById("mensajeIncidente");
+
+    if (mensaje.style.display === "block") {
+        mensaje.style.display = "none";
+    } else {
+        mensaje.style.display = "block";
+    }
+}
 </script>
 
 </body>
