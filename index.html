@@ -1625,10 +1625,51 @@ button:hover {
         </article>
 
 
-        <div class="cierre-archivo04">
-            FIN DEL ARCHIVO 004
-            <span>La investigación continúa.</span>
+        <div class="cierre-archivo004">
+    FIN DEL ARCHIVO 004
+    <span>La investigación continúa.</span>
+</div>
+
+<div class="boton-contenedor">
+    <button onclick="iniciarAscenso31()">
+        FINALIZAR INVESTIGACIÓN
+    </button>
+</div>
+
+</div>
+
+</section>
+    <!-- ASCENSO NIVEL 31 -->
+<section id="ascenso31" class="ascenso31" style="display: none;">
+
+    <div class="chispas" aria-hidden="true"></div>
+
+    <div class="ascenso-contenido">
+
+        <div class="ascenso-etiqueta">
+            ACTUALIZACIÓN DE EXPEDIENTE
         </div>
+
+        <div class="ascenso-numero">
+            31
+        </div>
+
+        <h2>NIVEL DESBLOQUEADO</h2>
+
+        <div class="ascenso-linea"></div>
+
+        <p class="ascenso-mensaje">
+            Tras una investigación exhaustiva, las autoridades han
+            confirmado un acontecimiento de importancia crítica.
+        </p>
+
+        <p class="ascenso-destacado">
+            ELE ESE HA ALCANZADO OFICIALMENTE EL NIVEL 31.
+        </p>
+
+        <p class="ascenso-clasificacion">
+            CLASIFICACIÓN: CUMPLEAÑERO 🎂
+        </p>
 
     </div>
 
@@ -1677,6 +1718,36 @@ function mostrarIncidente() {
             block: "start"
         });
     }, 100);
+}
+        function iniciarAscenso31() {
+    const archivo = document.getElementById("archivo004");
+    const ascenso = document.getElementById("ascenso31");
+
+    // Desvanece el expediente
+    archivo.style.transition = "opacity .6s ease";
+    archivo.style.opacity = "0";
+
+    setTimeout(() => {
+        // Oculta por completo el expediente
+        archivo.style.display = "none";
+
+        // Muestra la pantalla del nivel 31
+        ascenso.style.display = "flex";
+        ascenso.style.opacity = "0";
+        ascenso.style.transition = "opacity 1s ease";
+
+        // Regresa arriba
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        // Hace aparecer la nueva pantalla
+        setTimeout(() => {
+            ascenso.style.opacity = "1";
+        }, 100);
+
+    }, 600);
 }
     </script>
 
