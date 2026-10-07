@@ -1995,11 +1995,16 @@ function mostrarIncidente() {
     block: "start"
         });
 
-        // Hace aparecer la nueva pantalla
-        setTimeout(() => {
-            ascenso.style.opacity = "1";
-           lanzarChispas();
-        }, 100);
+        // setTimeout(() => {
+    ascenso.style.opacity = "1";
+
+    setTimeout(() => {
+        lanzarChispas();
+    }, 500);
+
+}, 100); 
+           aparecer la nueva pantalla
+        
 
     }, 600);
 }
