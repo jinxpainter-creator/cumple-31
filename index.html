@@ -7,7 +7,7 @@
 <title>Expediente #31</title>
 /* =========================================
    ASCENSO NIVEL 31
-========================================= */
+========================================= */f
 
 .ascenso31 {
     min-height: 100vh;
@@ -1956,9 +1956,9 @@ function mostrarIncidente() {
         ascenso.style.transition = "opacity 1s ease";
 
         // Regresa arriba
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+        ascenso.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
         });
 
         // Hace aparecer la nueva pantalla
