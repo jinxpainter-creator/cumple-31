@@ -1332,7 +1332,12 @@ button:hover {
 
         <div class="comentario-shanghai">
             *Las autoridades de Shanghái no respondieron
-            a nuestra solicitud de comentarios          
+            a nuestra solicitud de comentarios    
+            <div class="boton-contenedor">
+    <button onclick="abrirArchivo004()">
+        CONTINUAR AL ARCHIVO 004
+    </button>
+</div>
         </div>
         </div>
         </div>
@@ -1343,8 +1348,7 @@ button:hover {
 </section>
 <!-- ARCHIVO 004 -->
 
-<section class="punto-retorno">
-
+<section class="punto-retorno" id="archivo004" style="display: none;">
     <div class="archivo04-contenido">
 
         <div class="etiqueta etiqueta-calida">
@@ -1662,7 +1666,19 @@ function mostrarIncidente() {
         mensaje.style.display = "block";
     }
 }
-</script>
+        function abrirArchivo004() {
+    const archivo = document.getElementById("archivo004");
+
+    archivo.style.display = "block";
+
+    setTimeout(() => {
+        archivo.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }, 100);
+}
+    </script>
 
 </body>
 </html>
