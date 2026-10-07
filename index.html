@@ -1157,8 +1157,40 @@ button:hover {
     }
 }
 
+/* CHISPAS DE CUMPLEAÑOS */
 
-/* CELULAR */
+.chispas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.chispa {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffd700;
+    box-shadow: 0 0 12px #ffd700;
+    animation: explotar 1.8s ease-out forwards;
+}
+
+@keyframes explotar {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(
+            var(--x),
+            var(--y)
+        ) scale(0);
+    }
+}
+      /* CELULAR */
 
 @media (max-width: 600px) {
 
@@ -1966,9 +1998,50 @@ function mostrarIncidente() {
         // Hace aparecer la nueva pantalla
         setTimeout(() => {
             ascenso.style.opacity = "1";
+           lanzarChispas();
         }, 100);
 
     }, 600);
+}
+       function lanzarChispas() {
+    const contenedor = document.querySelector(
+        "#ascenso31 .chispas"
+    );
+
+    if (!contenedor) return;
+
+    contenedor.innerHTML = "";
+
+    for (let i = 0; i < 80; i++) {
+        const chispa = document.createElement("span");
+
+        chispa.classList.add("chispa");
+
+        chispa.style.left = "50%";
+        chispa.style.top = "45%";
+
+        const angulo = Math.random() * Math.PI * 2;
+        const distancia = 100 + Math.random() * 350;
+
+        chispa.style.setProperty(
+            "--x",
+            Math.cos(angulo) * distancia + "px"
+        );
+
+        chispa.style.setProperty(
+            "--y",
+            Math.sin(angulo) * distancia + "px"
+        );
+
+        chispa.style.animationDelay =
+            Math.random() * 0.4 + "s";
+
+        contenedor.appendChild(chispa);
+    }
+
+    setTimeout(() => {
+        contenedor.innerHTML = "";
+    }, 2500);
 }
     </script>
 
