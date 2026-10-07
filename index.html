@@ -5,8 +5,227 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Expediente #31</title>
+/* =========================================
+   ASCENSO NIVEL 31
+========================================= */
 
-<style>
+.ascenso31 {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 60px 24px;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(110, 25, 35, 0.30) 0%,
+            rgba(30, 8, 12, 0.15) 35%,
+            #090909 75%
+        );
+
+    color: #eee7dc;
+    text-align: center;
+}
+
+
+/* CONTENIDO CENTRAL */
+
+.ascenso-contenido {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 850px;
+
+    margin: auto;
+
+    opacity: 0;
+    transform: translateY(25px);
+
+    animation: aparecerAscenso 1.4s ease forwards;
+}
+
+
+/* ETIQUETA SUPERIOR */
+
+.ascenso-etiqueta {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+
+    color: #b94a55;
+
+    margin-bottom: 30px;
+}
+
+
+/* NÚMERO 31 */
+
+.ascenso-numero {
+    font-family: Georgia, serif;
+    font-size: clamp(110px, 20vw, 220px);
+    line-height: .8;
+
+    color: #eee7dc;
+
+    text-shadow:
+        0 0 15px rgba(190, 60, 75, .35),
+        0 0 50px rgba(150, 30, 45, .20);
+
+    margin-bottom: 35px;
+
+    animation: pulso31 3s ease-in-out infinite;
+}
+
+
+/* NIVEL DESBLOQUEADO */
+
+.ascenso31 h2 {
+    font-family: Arial, sans-serif;
+    font-size: clamp(20px, 3vw, 34px);
+
+    letter-spacing: 8px;
+    font-weight: 400;
+
+    margin: 0;
+
+    color: #eee7dc;
+}
+
+
+/* LÍNEA DECORATIVA */
+
+.ascenso-linea {
+    width: 0;
+    height: 1px;
+
+    background: #a83d49;
+
+    margin: 35px auto;
+
+    animation: extenderLinea 1.5s ease forwards;
+    animation-delay: .7s;
+}
+
+
+/* TEXTO */
+
+.ascenso-mensaje {
+    max-width: 650px;
+    margin: 0 auto 30px;
+
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #aaa29a;
+}
+
+
+/* FRASE IMPORTANTE */
+
+.ascenso-destacado {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+
+    color: #eee7dc;
+
+    margin: 35px auto;
+}
+
+
+/* CUMPLEAÑERO */
+
+.ascenso-clasificacion {
+    display: inline-block;
+
+    margin-top: 25px;
+    padding: 12px 20px;
+
+    border: 1px solid #8e343e;
+
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+
+    color: #c55360;
+}
+
+
+/* ANIMACIONES */
+
+@keyframes aparecerAscenso {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes extenderLinea {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 180px;
+    }
+}
+
+
+@keyframes pulso31 {
+
+    0%, 100% {
+        text-shadow:
+            0 0 15px rgba(190, 60, 75, .25),
+            0 0 40px rgba(150, 30, 45, .15);
+    }
+
+    50% {
+        text-shadow:
+            0 0 25px rgba(210, 70, 85, .55),
+            0 0 80px rgba(170, 30, 50, .30);
+    }
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .ascenso31 {
+        padding: 40px 20px;
+    }
+
+    .ascenso-etiqueta {
+        font-size: 9px;
+        letter-spacing: 3px;
+    }
+
+    .ascenso31 h2 {
+        letter-spacing: 4px;
+    }
+
+    .ascenso-mensaje {
+        font-size: 15px;
+    }
+
+}<style>
 
 * {
     box-sizing: border-box;
