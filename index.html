@@ -1891,7 +1891,10 @@ button:hover {
 </div>
 
 </section>
-    <!-- ASCENSO NIVEL 31 -->
+   <audio id="musicaVictoria" preload="auto">
+    <source src="victoria31.mp3" type="audio/mpeg">
+</audio>
+   <!-- ASCENSO NIVEL 31 -->
 <section id="ascenso31" class="ascenso31" style="display: none;">
 
     <div class="chispas" aria-hidden="true"></div>
@@ -1973,8 +1976,18 @@ function mostrarIncidente() {
     }, 100);
 }
         function iniciarAscenso31() {
-    const archivo = document.getElementById("archivo004");
-    const ascenso = document.getElementById("ascenso31");
+           
+           const musica = document.getElementById("musicaVictoria");
+
+if (musica) {
+    musica.currentTime = 0;
+    musica.volume = 0.7;
+    musica.play().catch(error => {
+        console.log("No se pudo reproducir la música:", error);
+    });
+}
+           const archivo = document.getElementById("archivo004");
+           const ascenso = document.getElementById("ascenso31");
 
     // Desvanece el expediente
     archivo.style.transition = "opacity .6s ease";
