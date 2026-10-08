@@ -1250,6 +1250,113 @@ button:hover {
     }
 
 }
+      /* CARTA FINAL */
+.carta-final {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(
+        ellipse at top,
+        #291821 0%,
+        #100d12 65%,
+        #080709 100%
+    );
+    padding: 90px 24px;
+    color: #eee3dc;
+    text-align: center;
+}
+
+.carta-contenido {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 45px 28px;
+    border: 1px solid rgba(212, 175, 115, 0.35);
+    background: rgba(15, 11, 16, 0.82);
+    box-shadow: 0 0 50px rgba(120, 50, 75, 0.12);
+}
+
+.carta-etiqueta,
+.carta-firma {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #c7a675;
+}
+
+.carta-corazon {
+    font-size: 55px;
+    color: #d99baa;
+    margin: 28px 0;
+}
+
+.carta-contenido h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 6vw, 52px);
+    color: #f5e5d5;
+    margin-bottom: 35px;
+}
+
+.carta-contenido p {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    line-height: 1.9;
+    margin-bottom: 25px;
+}
+
+.carta-destacado {
+    color: #e9b4be;
+    font-size: 24px !important;
+    font-weight: bold;
+}
+
+.carta-despedida {
+    font-style: italic;
+    color: #d9c3a6;
+}
+
+.carta-firma {
+    margin-top: 55px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(212, 175, 115, 0.3);
+}
+
+/* LLUVIA DE CORAZONES */
+.corazones-lluvia {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corazon-caida {
+    position: absolute;
+    top: -50px;
+    color: #d99baa;
+    opacity: 0;
+    animation: caerCorazon linear forwards;
+}
+
+@keyframes caerCorazon {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
    </style>
 </head>
 
@@ -1963,11 +2070,48 @@ button:hover {
         <p class="ascenso-clasificacion">
             CLASIFICACIÓN: CUMPLEAÑERO 🎂
         </p>
-
+<div class="boton-contenedor">
+    <button onclick="mostrarCartaFinal()">
+        ÚLTIMO DOCUMENTO DESCLASIFICADO ♡
+    </button>
+</div>
     </div>
 
 </section>
-    <script>
+   <!-- CARTA FINAL DE CUMPLEAÑOS -->
+<section id="cartaFinal" class="carta-final" style="display: none;">
+   <div class="corazones-lluvia" aria-hidden="true"></div>
+   <div class="carta-contenido">
+
+        <div class="carta-etiqueta">
+            DOCUMENTO DESCLASIFICADO • 031
+        </div>
+
+        <div class="carta-corazon">♡</div>
+
+        <h2>Para Ele Ese</h2>
+
+        <p>Hay personas que llegan a nuestra vida sin hacer demasiado ruido y, sin darse cuenta, terminan dejando algo bonito en ella.</p>
+
+        <p>Quizá cumplir años no se trate solamente de sumar números, sino de todas las historias que llevamos con nosotros, de las batallas que hemos superado, de las risas que todavía nos esperan y de las personas que hemos conocido en el camino.</p>
+
+        <p>Hoy quiero desearte algo más que un feliz cumpleaños.</p>
+
+        <p>Deseo que la vida sea amable contigo. Que encuentres motivos para sonreír incluso en los días complicados, que nunca te falten sueños por perseguir y que siempre tengas cerca personas capaces de reconocer lo valioso que eres.</p>
+
+        <p>Que tus 31 años lleguen cargados de momentos inesperadamente hermosos, de aventuras que merezcan ser contadas y de pequeños instantes que, sin parecer extraordinarios, terminen convirtiéndose en recuerdos inolvidables.</p>
+
+        <p>Y, sobre todo, deseo que nunca olvides que tu existencia también puede ser una alegría en la historia de alguien más.</p>
+
+        <p class="carta-destacado">Feliz cumpleaños, Ele Ese. ♡</p>
+
+        <p class="carta-despedida">Que este nuevo capítulo sea uno de tus favoritos.</p>
+
+        <div class="carta-firma">FIN DEL EXPEDIENTE N.º 31</div>
+
+    </div>
+</section>
+   <script>
 
 function abrirExpediente() {
 
